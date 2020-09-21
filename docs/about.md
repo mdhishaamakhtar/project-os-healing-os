@@ -71,3 +71,18 @@ ls
     }
 ]
 ```
+
+## Utility Core
+
+Utility core is the library written on top of the **_git actions library_** (first one mentioned on this page). This library provides the final callable methods that the **watchman** calls. All internal commands that the utility provides are implemented in the core library itself.
+
+The target is to have simple functions like
+
+```cpp
+// create a new
+worker.createNewCheckpoint();
+worker.revertLastCheckpoint();
+worker.newWorkSpace();
+worker.changeWorkSpace(3);
+worker.integrateWorkSpace(3);
+```
