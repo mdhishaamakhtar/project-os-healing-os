@@ -1,7 +1,12 @@
-## C++ Project Template
+## Self Healing OS
 
 Read more about project [here](docs/about.md)
 
 ---
 
-**Author**: [Yash Kumar Verma](http://github.com/yashkumarverma)
+Members :
+
+- Yash Kumar Verma (19BCE2669)
+- Vaishnav Srinidhi (19BCE0054)
+- Md Hishaam Akhtar (19BCE0300)
+- Arpit Upadhyay (19BCI0191)
