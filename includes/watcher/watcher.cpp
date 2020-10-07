@@ -1,31 +1,39 @@
 #include"watcher.h"
-#include"../git_actions/git_actions.h"
+#include <sstream>
+// #include"../git_actions/git_actions.cpp" // Creating a compilation error
+#include"../logger/logger.cpp"
 #include<string>
 int main() {
     Watcher w;
+    LoggerClass l;
     while (true) {
         std::string command = w.enter_command();
-        if (command[0] != ':') {
-            std::cout << "Please enter the correct command again" << std::endl;
-            continue;
-        }
+        l.logInfo(command, "command");
         if (command == "exit") {
             break;
         }
-        string word = "";
-        vector<string> s;
-        for (auto x : command) {
-            if (x == ' ') {
-                s.push_back(word);
-                word = "";
-            }
-            else {
-                word = word + x;
-            }
+        if (command[0] != ':') {
+            std::cout << "Given command is a system command" << std::endl;
+            char cmd[command.size() + 1];
+            strcpy(cmd, command.c_str());
+            system(cmd);
+            continue;
         }
-        string command_to_pass = s.at(0) + s.at(1);
-        if(!w.command_checker(command_to_pass)){
+        std::string word = "";
+        std::vector<string> s;
+        std::stringstream iss(command);
+        while (iss >> word) {
+            s.push_back(word);
+        }
+        if (s.size() <= 1) {
             std::cout << "Please enter the correct command again" << std::endl;
+            continue;
         }
+        string command_to_pass = s.at(0) + " " + s.at(1);
+        if (!w.command_checker(command_to_pass)) {
+            std::cout << "Please enter the correct command again" << std::endl;
+            continue;
+        }
+        std::cout << "Command executed" << std::endl;
     }
 }
