@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/revwalk_from_head.dir/samples/revwalk_from_head.cpp.o  -o samples/revwalk_from_head  -Wl,-rpath,"/home/vaishnav/Documents/OS project/cppgit2/build/lib" lib/libcppgit2.so.0.1.0 lib/git2.so.1.0.0 -lrt -lpthread /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so 
