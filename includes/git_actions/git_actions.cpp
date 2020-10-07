@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <cppgit2/repository.h>
+#inlcude <string>
+#include "build/include/cppgit2/repository.hpp"
+#include "git_actions.h"
 using namespace cppgit2;
 
 class git_actions
@@ -12,14 +14,14 @@ public:
 		auto repo = repository::init(input, false);
 	}
 
-	void clone_repo(auto url, auto path)
+	void clone_repo(string url, string path)
 	{
 		clone::options options;
 		auto repo = repository::clone(url, path, options);
 	}
 
 	//the path here points to a git directory
-	void add(auto path, string file_name)
+	void add(string path, string file_name)
 	{
 		auto repo = repository::open(path);
 		auto index = repo.index();
@@ -28,7 +30,7 @@ public:
 	}
 
 	//commiting with custom message
-	auto commit(auto path, auto index, string name, string email, string message)
+	auto commit(string path, auto index, string name, string email, string message)
 	{
 		auto repo = repository::open(path);
 		auto tree_oid = index.write_tree();
@@ -44,7 +46,7 @@ public:
 	}
 
 	//DOUBT ASK VERMS
-	auto create_branch(auto branch_name, auto commit_oid)
+	auto create_branch(string branch_name, string commit_oid)
 	{
 		auto commit = repo.lookup_commit(commit_oid);
 		auto branch_ref = repo.create_branch(branch_name, commit, false);
