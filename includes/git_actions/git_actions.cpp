@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#inlcude <string>
+#include <string>
 #include "build/include/cppgit2/repository.hpp"
 #include "git_actions.h"
 using namespace cppgit2;
