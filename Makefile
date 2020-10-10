@@ -13,5 +13,8 @@ bin/logger.o: includes/logger/logger.cpp
 bin/log_processor.o : includes/log_processor/log_processor.h includes/log_processor/log_processor.cpp
 	g++ --std=c++17 -c includes/log_processor/log_processor.cpp -o bin/log_processor.o
 
+# bin/watcher.o : includes/watcher/watcher.cpp
+	# g++ --std=c++17 -c includes/watcher/watcher.cpp -o bin/watcher.o
+
 clean:
 	rm -rf bin/*.o
