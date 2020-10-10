@@ -10,7 +10,7 @@ public:
      * Vector which stores all commands available for the User
      * More to be added when core utility is implemented
      */
-    std::vector<std::string> available_commands = {":checkpoint create",":checkpoint revert","ls"};
+    std::vector<std::string> available_commands = {":checkpoint create",":checkpoint revert",":branch new",":branch switch",":branch delete",":branch accept",":cloud attach",":cloud sync"};
     /**
      * Function to enter a command
      */
