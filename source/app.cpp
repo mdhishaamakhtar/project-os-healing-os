@@ -15,10 +15,10 @@ int main(){
     logger.save("internal", ":checkpoint create");
     logger.save("internal", ":checkpoint delete");
     Watcher w;
-    LoggerClass l;
+    LoggerModule l;
     while (true) {
         std::string command = w.enter_command();
-        l.logInfo(command, "command");
+        l.save(command, "command");
         if (command == "exit") {
             break;
         }
