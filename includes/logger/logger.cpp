@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string.h>
 #include <time.h>
-
+#include "./../rainbow/rainbow.h"
 using namespace std;
 
 /**
@@ -28,8 +28,7 @@ class LoggerModule{
         string category;
         time_t systime;
         friend ofstream &operator<<(ofstream &ofs, LoggerModule &s);
-        friend ifstream &operator>>(ifstream &ifs, LoggerModule &s);
-        void save(std::string a,std::string b);
+        void save(string context,string command);
 };
 
 /** overloading shift operator to write data **/
@@ -78,6 +77,9 @@ void LoggerModule::save(string context, string command){
     logger.commandName = command;
     logger.systime = time(NULL);
     ofstream ofs("logs.txt", ios::app);
+    rainbow::log("logger",context, command);
     ofs << logger;
     ofs.close();
 }
+
+

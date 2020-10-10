@@ -13,6 +13,7 @@ class rainbow{
 		static std::string italic(std::string str);
 		static std::string underline(std::string str);
 		static std::string strike(std::string str);
+        static void log(std::string module, std::string context, std::string command);
 };
 
 #endif

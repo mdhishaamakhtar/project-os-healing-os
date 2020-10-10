@@ -7,8 +7,7 @@ int main(){
     cout << rainbow::underline(rainbow::bold(rainbow::red("SELF HEALING OS"))) << endl << endl; 
     
     cout << rainbow::bold("Logger Usage") << endl;
-
-
+    
     LoggerModule logger;
     logger.save("system", "ls");
     logger.save("system", "mkdir directory");

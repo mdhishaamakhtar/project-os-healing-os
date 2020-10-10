@@ -3,3 +3,18 @@ mkdir directory~~|~~system~~|~~1602300495
 cat commands.txt~~|~~system~~|~~1602300495
 :checkpoint create~~|~~internal~~|~~1602300495
 :checkpoint delete~~|~~internal~~|~~1602300495
+ls~~|~~system~~|~~1602301672
+mkdir directory~~|~~system~~|~~1602301672
+cat commands.txt~~|~~system~~|~~1602301672
+:checkpoint create~~|~~internal~~|~~1602301672
+:checkpoint delete~~|~~internal~~|~~1602301672
+ls~~|~~system~~|~~1602304628
+mkdir directory~~|~~system~~|~~1602304628
+cat commands.txt~~|~~system~~|~~1602304628
+:checkpoint create~~|~~internal~~|~~1602304628
+:checkpoint delete~~|~~internal~~|~~1602304628
+ls~~|~~system~~|~~1602304699
+mkdir directory~~|~~system~~|~~1602304699
+cat commands.txt~~|~~system~~|~~1602304699
+:checkpoint create~~|~~internal~~|~~1602304699
+:checkpoint delete~~|~~internal~~|~~1602304699
