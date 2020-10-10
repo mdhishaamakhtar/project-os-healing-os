@@ -5,3 +5,8 @@ exit|command|1602070267
 dir|command|1602070281
 dir *|command|1602070290
 :check|command|1602070301
+dir|command|1602315822
+ls|command|1602315830
+exit|command|1602315835
+dir|command|1602315895
+exit|command|1602315896
