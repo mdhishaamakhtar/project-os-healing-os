@@ -1,10 +1,10 @@
 #include<iostream>
+#include <sstream>
+#include <string>
+
 #include"./../includes/rainbow/rainbow.h"
 #include"./../includes/watcher/watcher.h"
 #include"./../includes/logger/logger.cpp"
-#include <sstream>
-#include<string>
-#include"./../includes/watcher/watcher.h"
 #include"./../includes/log_processor/log_processor.h"
 
 using namespace std;
@@ -26,10 +26,9 @@ int main(){
   
   
     Watcher w;
-    LoggerClass l;
     while (true) {
-        std::string command = w.enter_command();
-        l.logInfo(command, "command");
+        std::string command = w.enter_command("yash ");
+        logger.save(command, "command");
         if (command == "exit") {
             break;
         }

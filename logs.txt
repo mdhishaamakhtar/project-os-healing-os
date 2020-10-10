@@ -42,3 +42,14 @@ tree .|system|1602321957
 vim task.md|system|1602321957
 rm *.txt|system|1602321957
 :checkpoint create|internal|1602321957
+ls|system|1602322276
+mkdir directory|system|1602322276
+cat commands.txt|system|1602322276
+ls -a |system|1602322276
+:checkpoint create|internal|1602322276
+tree .|system|1602322276
+vim task.md|system|1602322276
+rm *.txt|system|1602322276
+:checkpoint create|internal|1602322276
+:checkpoint delete|internal|1602322276
+command|ls|1602322278
