@@ -25,7 +25,9 @@ public:
         ":branch accept",
         ":cloud attach",
         ":cloud pull",
-        ":cloud push"
+        ":cloud push",
+        ":logs show",
+        ":logs clean"
     };
 
     /**Function to enter a command */
@@ -35,7 +37,7 @@ public:
      * Function to call the utility function to
      * be implemented when the functions are ready
      */
-    void call_utility(string command);
+    void taskDispatcher(string command);
 
     /** Functon to check if command is allowed or not */
     bool ifValidInternalCommand(string command);
