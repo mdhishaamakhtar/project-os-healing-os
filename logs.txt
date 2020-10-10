@@ -1,20 +1,44 @@
-ls~~|~~system~~|~~1602300495
-mkdir directory~~|~~system~~|~~1602300495
-cat commands.txt~~|~~system~~|~~1602300495
-:checkpoint create~~|~~internal~~|~~1602300495
-:checkpoint delete~~|~~internal~~|~~1602300495
-ls~~|~~system~~|~~1602301672
-mkdir directory~~|~~system~~|~~1602301672
-cat commands.txt~~|~~system~~|~~1602301672
-:checkpoint create~~|~~internal~~|~~1602301672
-:checkpoint delete~~|~~internal~~|~~1602301672
-ls~~|~~system~~|~~1602304628
-mkdir directory~~|~~system~~|~~1602304628
-cat commands.txt~~|~~system~~|~~1602304628
-:checkpoint create~~|~~internal~~|~~1602304628
-:checkpoint delete~~|~~internal~~|~~1602304628
-ls~~|~~system~~|~~1602304699
-mkdir directory~~|~~system~~|~~1602304699
-cat commands.txt~~|~~system~~|~~1602304699
-:checkpoint create~~|~~internal~~|~~1602304699
-:checkpoint delete~~|~~internal~~|~~1602304699
+ls|aaaa|1602321570
+mkdir directory|system|1602321570
+cat commands.txt|system|1602321570
+ls -a |system|1609321570
+:checkpoint create|internal|1609321570
+tree .|system|1609321570
+vim task.md|system|1609321570
+rm *.txt|system|1609321570
+:checkpoint create|internal|1609321570ls|system|1602321798
+mkdir directory|system|1602321798
+cat commands.txt|system|1602321798
+ls -a |system|1602321798
+:checkpoint create|internal|1602321798
+tree .|system|1602321798
+vim task.md|system|1602321798
+rm *.txt|system|1602321798
+:checkpoint create|internal|1602321798
+ls|system|1602321815
+mkdir directory|system|1602321815
+cat commands.txt|system|1602321815
+ls -a |system|1602321815
+:checkpoint create|internal|1602321815
+tree .|system|1602321815
+vim task.md|system|1602321815
+rm *.txt|system|1602321815
+:checkpoint create|internal|1602321815
+ls|system|1602321921
+mkdir directory|system|1602321921
+cat commands.txt|system|1602321921
+ls -a |system|1602321921
+:checkpoint create|internal|1602321921
+tree .|system|1602321921
+vim task.md|system|1602321921
+rm *.txt|system|1602321921
+:checkpoint create|internal|1602321921
+ls|system|1602321957
+mkdir directory|system|1602321957
+cat commands.txt|system|1602321957
+ls -a |system|1602321957
+:checkpoint create|internal|1602321957
+tree .|system|1602321957
+vim task.md|system|1602321957
+rm *.txt|system|1602321957
+:checkpoint create|internal|1602321957
