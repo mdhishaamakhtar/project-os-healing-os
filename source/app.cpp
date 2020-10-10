@@ -3,61 +3,70 @@
 #include <string>
 
 #include"./../includes/rainbow/rainbow.h"
-#include"./../includes/watcher/watcher.h"
 #include"./../includes/logger/logger.cpp"
+#include"./../includes/watcher/watcher.cpp"
 #include"./../includes/log_processor/log_processor.h"
 
 using namespace std;
+
 int main(){
+    string username;
+    string commandType;
+
+    // showing basic ui to user
     cout << rainbow::underline(rainbow::bold(rainbow::red("SELF HEALING OS"))) << endl << endl;
-    cout << rainbow::bold("Logger Usage") << endl << endl;
+    cout << rainbow::grey("Welcome, please enter your username : ");
+    cin >> username; 
 
     LoggerModule logger;
-    logger.save("system", "ls");
-    logger.save("system", "mkdir directory");
-    logger.save("system", "cat commands.txt");
-    logger.save("system", "ls -a ");
-    logger.save("internal", ":checkpoint create");
-    logger.save("system", "tree .");
-    logger.save("system", "vim task.md");
-    logger.save("system", "rm *.txt");
-    logger.save("internal", ":checkpoint create");
-    logger.save("internal", ":checkpoint delete");
-  
-  
-    Watcher w;
+    Watcher watcher;
+    
+    /** start infinite loop to take commands until user quits **/
+    cout << rainbow::grey("logging you in, type \"exit\" or  press ") 
+            << rainbow::grey(rainbow::bold("CTRL"))
+            << "+"
+            << rainbow::grey(rainbow::bold("C"))
+            << rainbow::grey(" to quit the system.")
+            << endl << endl;
+
     while (true) {
-        std::string command = w.enter_command("yash ");
-        logger.save(command, "command");
+        commandType = "internal";
+        string command = watcher.listenForCommand(username);
+        
+        /** a clean exit **/
         if (command == "exit") {
             break;
         }
+
+        /** handle when internal command entered **/
         if (command[0] != ':') {
-            std::cout << "Given command is a system command" << std::endl;
+            commandType = "system";
             char cmd[command.size() + 1];
             strcpy(cmd, command.c_str());
             system(cmd);
             continue;
         }
-        std::string word = "";
-        std::vector<string> s;
-        std::stringstream iss(command);
+
+        string word = "";
+        vector<string> s;
+        stringstream iss(command);
         while (iss >> word) {
             s.push_back(word);
         }
+
         if (s.size() <= 1) {
-            std::cout << "Please enter the correct command again" << std::endl;
+            cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
             continue;
         }
         string command_to_pass = s.at(0) + " " + s.at(1);
-        if (!w.command_checker(command_to_pass)) {
-            std::cout << "Please enter the correct command again" << std::endl;
+        
+        if (!watcher.ifValidInternalCommand(command_to_pass)) {
+            cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
             continue;
         }
-        std::cout << "Command executed" << std::endl;
+        cout << "Command executed" << endl;
         return 0;
     }
-
 
 
     cout << endl << rainbow::bold(rainbow::underline("Reading and Processing Logs")) << endl;
