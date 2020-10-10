@@ -1,4 +1,4 @@
-bin/makemake: bin/app.o  bin/rainbow.o 
+bin/makemake: bin/app.o  bin/rainbow.o bin/logger.o
 	g++ --std=c++17 bin/app.o bin/rainbow.o  -o bin/dist
 
 bin/app.o: source/app.cpp
@@ -6,6 +6,9 @@ bin/app.o: source/app.cpp
 
 bin/rainbow.o: includes/rainbow/rainbow.cpp includes/rainbow/rainbow.h
 	g++ --std=c++17 -c includes/rainbow/rainbow.cpp -o bin/rainbow.o
+
+bin/logger.o: includes/logger/logger.cpp
+	g++ --std=c++17 -c includes/logger/logger.cpp -o bin/logger.o
 
 clean:
 	rm -rf bin/*.o
