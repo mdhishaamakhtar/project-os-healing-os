@@ -1,0 +1,5 @@
+ls~~|~~system~~|~~1602300495
+mkdir directory~~|~~system~~|~~1602300495
+cat commands.txt~~|~~system~~|~~1602300495
+:checkpoint create~~|~~internal~~|~~1602300495
+:checkpoint delete~~|~~internal~~|~~1602300495

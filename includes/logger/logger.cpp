@@ -2,54 +2,54 @@
 #include <fstream>
 #include <string.h>
 #include <time.h>
+
 using namespace std;
 
-/*This is Logger File 
-to use this logger you need to instantiate LoggerClass and using logInfo() function
-with two strings as arguments ex: log("command","command category") and the time stamp is appended to this
-OutPut Example:
-command|category|time
-Sample.txt:
-ls|Command_System|1601834132
-cd|Command_System|1601834132
-
-here:
-"|" being the delimiter
-*/
-
-class LoggerClass
-{
-public:
-    string commandName;
-    string category;
-    time_t systime;
-    friend ofstream &operator<<(ofstream &ofs, LoggerClass &s);
-    void logInfo(std::string a,std::string b)
-    {
-        LoggerClass s;
-        s.commandName = a;
-        s.category = b;
-        s.systime =	time(NULL);
-        ofstream ofs("sample.txt", ios::app);
-
-        ofs<<s;
-            
-        ofs.close();
-    }
+/**
+ * @class: LoggerModule
+ * @description: Module to handle logging operations to store all commands executed
+ * which can be later used to bring the system in the main state.
+ * 
+ * The data is stored as a plain file, using ~~|~~ as a delimiter
+ * ex: log("command category","command") 
+ * 
+ * output ex: 
+ * command category|comand|timestemp
+ * 
+ * Sample.txt:
+ * Command_System~~|~~ls~~|~~1601834132
+ * Command_System~~|~~cd~~|~~1601834132
+ * 
+ * here ~~|~~ is being used as delimiter
+ */
+class LoggerModule{
+    public:
+        string commandName;
+        string category;
+        time_t systime;
+        friend ofstream &operator<<(ofstream &ofs, LoggerModule &s);
+        void save(std::string a,std::string b);
 };
 
-ofstream &operator<<(ofstream &ofs, LoggerClass &s)
-{
-    ofs << s.commandName <<"|";
-    ofs << s.category << "|";
+/** overloading shift operator to write data **/
+ofstream &operator<<(ofstream &ofs, LoggerModule &s){
+    ofs << s.commandName <<"~~|~~";
+    ofs << s.category << "~~|~~";
     ofs << s.systime << endl;
     return ofs;
 }
-//samplecall in main::
-/*int main()
-{
-    LoggerClass h;
 
-    h.logInfo("yo","hello");
-    h.logInfo("why","nolo");
-}*/
+/**
+ * @method 
+ * @description: to write a log entry into persistant storage, with timestamp and 
+ * category to which it belongs
+ */
+void LoggerModule::save(string context, string command){
+    LoggerModule logger;
+    logger.category = context;
+    logger.commandName = command;
+    logger.systime = time(NULL);
+    ofstream ofs("logs.txt", ios::app);
+    ofs << logger;
+    ofs.close();
+}
