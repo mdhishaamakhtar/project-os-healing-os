@@ -5,9 +5,15 @@
 #include <sstream>
 #include<string>
 using namespace std;
-
-int main() {
-    cout << rainbow::underline(rainbow::bold(rainbow::red("SELF HEALING OS"))) << endl << endl;
+int main(){
+    cout << rainbow::underline(rainbow::bold(rainbow::red("SELF HEALING OS"))) << endl << endl; 
+    cout << rainbow::bold("Logger Usage") << endl;
+    LoggerModule logger;
+    logger.save("system", "ls");
+    logger.save("system", "mkdir directory");
+    logger.save("system", "cat commands.txt");
+    logger.save("internal", ":checkpoint create");
+    logger.save("internal", ":checkpoint delete");
     Watcher w;
     LoggerClass l;
     while (true) {
@@ -41,4 +47,5 @@ int main() {
         std::cout << "Command executed" << std::endl;
         return 0;
     }
+    return 0;
 }

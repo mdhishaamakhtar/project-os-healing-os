@@ -1,25 +1,29 @@
-#include<string>
 #include"rainbow.h"
+#include<iostream>
+#include<string>
+#include <iomanip>
+
+using namespace std;
 
 
-std::string rainbow::orange(std::string str){
-    std::string x;
+string rainbow::orange(string str){
+    string x;
     x.append("\e[33m");
     x.append(str);
     x.append("\e[0m");
     return x;
 }
 
-std::string rainbow::green(std::string str){
-    std::string x;
+string rainbow::green(string str){
+    string x;
     x.append("\e[32m");
     x.append(str);
     x.append("\e[0m");
     return x;
 }
 
-std::string rainbow::grey(std::string str){
-    std::string x;
+string rainbow::grey(string str){
+    string x;
     x.append("\e[90m");
     x.append(str);
     x.append("\e[0m");
@@ -27,42 +31,50 @@ std::string rainbow::grey(std::string str){
 }
 
 
-std::string rainbow::red(std::string str){
-    std::string x;
+string rainbow::red(string str){
+    string x;
     x.append("\e[31m");
     x.append(str);
     x.append("\e[0m");
     return x;
 }
 
-std::string rainbow::bold(std::string str){
-	std::string x;
+string rainbow::bold(string str){
+	string x;
 	x.append("\033[1m");
 	x.append(str);
 	x.append("\033[0m");
 	return x;
 }
 
-std::string rainbow::italic(std::string str){
-	std::string x;
+string rainbow::italic(string str){
+	string x;
 	x.append("\e[3m");
 	x.append(str);
 	x.append("\e[0m");
 	return x;
 }
 
-std::string rainbow::underline(std::string str){
-	std::string x;
+string rainbow::underline(string str){
+	string x;
 	x.append("\e[4m");
 	x.append(str);
 	x.append("\e[0m");
 	return x;
 }
 
-std::string rainbow::strike(std::string str){
-	std::string x;
+string rainbow::strike(string str){
+	string x;
 	x.append("\e[9m");
 	x.append(str);
 	x.append("\e[0m");
 	return x;
+}
+
+
+void rainbow::log(string module, string context, string command){ 
+    string firstSegment = "[" + rainbow::green("logger") + "] ";
+    string contextSegment = "[" + rainbow::italic(context)  + "] ";
+    string lastSegment = " " + rainbow::grey(command);
+    cout << firstSegment << contextSegment << lastSegment << endl;
 }

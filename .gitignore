@@ -1,6 +1,7 @@
 #editor
 .vscode/*
 makefile.txt
+logs.txt
 # Prerequisites
 *.d
 
