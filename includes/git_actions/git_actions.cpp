@@ -1,66 +1,74 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "build/include/cppgit2/repository.hpp"
+#include <vector>
+#include <stdlib.h>
 #include "git_actions.h"
-using namespace cppgit2;
+using namespace std;
+ 
+// class git_actions
+// {
+// public:
 
-class git_actions
-{
-public:
-	
-	void create_repo(string input)
+	void git_actions::clone_repo(string url)
 	{
-		auto repo = repository::init(input, false);
+		string first = "git clone ";
+		string command_str = first + url;
+
+        const char *command = command_str.c_str();
+		system(command);
 	}
 
-	void clone_repo(string url, string path)
+	void git_actions::add()
 	{
-		clone::options options;
-		auto repo = repository::clone(url, path, options);
+		string first = "git add .";
+		
+		const char *command = first.c_str();
+		system(command);
 	}
 
-	//the path here points to a git directory
-	void add(string path, string file_name)
+	void git_actions::commit(string message)
 	{
-		auto repo = repository::open(path);
-		auto index = repo.index();
-	    index.add_entry_by_path(file_name);
-	    index.write();
+		string first = "git commit -m";
+		string command_str = first + "\"" + message + "\"";
+
+		const char *command = command_str.c_str();
+		system(command);
 	}
 
-	//commiting with custom message
-	auto commit(string path, auto index, string name, string email, string message)
+	void git_actions::push(string branchName)
 	{
-		auto repo = repository::open(path);
-		auto tree_oid = index.write_tree();
+		string first = "git push origin ";
+		string command_str = first + branchName;
 
-	    auto author = signature(name, email);
-    	auto committer = signature(name, email);
-
-    	auto commit_oid = repo.create_commit("HEAD", author, committer, "utf-8", message, repo.lookup_tree(tree_oid), {});
-
-    	std::cout << "Created commit with ID: " << commit_oid.to_hex_string() << std::endl;
-
-    	return commit_oid;
+		const char *command = command_str.c_str();
+		system(command);
 	}
 
-	//DOUBT ASK VERMS
-	auto create_branch(string branch_name, string commit_oid)
+	void git_actions::pull()
 	{
-		auto commit = repo.lookup_commit(commit_oid);
-		auto branch_ref = repo.create_branch(branch_name, commit, false);
-		std::cout << "Created branch " << branch_name << std::endl;
+		string first = "git pull";
 
-		return branch_ref;
+		const char *command = first.c_str();
+		system(command);
 	}
 
-	void checkout_branch(auto branch_name, auto branch_ref)
+	void git_actions::create_branch(string branchName)
 	{
-		auto treeish = repo.revparse_to_object(branch_name);
-	    repo.checkout_tree(treeish);		
-	    repo.set_head(branch_ref.name());
+		string first = "git branch ";
+		string command_str = first + branchName;
 
-	    std::cout << "Checked out " << branch_name << std::endl;
+		const char *command = command_str.c_str();
+		system(command);
 	}
-};
+
+	void git_actions::checkout(string branchName)
+	{
+		string first = "git checkout ";
+		string command_str = first + branchName;
+
+		const char *command = command_str.c_str();
+		system(command);
+	}
+// };
+
