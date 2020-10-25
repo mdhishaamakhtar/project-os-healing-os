@@ -5,7 +5,9 @@
 #include<string>
 
 using namespace std;
+/*the log_processor header file includes the Classes and their fucntions in USE in this file*/
 
+/*constructor intialized in header file assigned attributes accordingly*/
 LogEntry::LogEntry(string commandType, string command, string timestamp){
     this->command = command;
     this->commandType = commandType;
@@ -23,7 +25,7 @@ LogProcessor::LogProcessor(vector<string> entries){
         this->entryStorage.push_back(newEntryObject);
     }    
 }
-
+/* Function derived from Class "LogProcessor" to add delimiters (here "|") in between the attributes of each object entry*/
 vector<string> LogProcessor::tokenizeEntry(string line){
     vector<string> tokens;
     stringstream check1(line); 
