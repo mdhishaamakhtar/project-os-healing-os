@@ -76,7 +76,7 @@ void LoggerModule::save(string context, string command){
     logger.commandName = command;
     logger.systime = time(NULL);
     ofstream ofs("logs.txt", ios::app);
-    rainbow::log("logger",context, command);
+    // rainbow::log("logger",context, command);
     ofs << logger;
     ofs.close();
 }

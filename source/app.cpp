@@ -29,55 +29,55 @@ int main(){
             << rainbow::grey(" to quit the system.")
             << endl << endl;
 
-    while (true) {
-        commandType = "internal";
-        string command = watcher.listenForCommand(username);
+    // while (true) {
+    //     commandType = "internal";
+    //     string command = watcher.listenForCommand(username);
         
-        /** a clean exit **/
-        if (command == "exit") {
-            break;
-        }
+    //     /** a clean exit **/
+    //     if (command == "exit") {
+    //         break;
+    //     }
 
-        /** handle when internal command entered **/
-        if (command[0] != ':') {
-            commandType = "system";
-            char cmd[command.size() + 1];
-            strcpy(cmd, command.c_str());
-            system(cmd);
-            continue;
-        }
+    //     /** handle when internal command entered **/
+    //     if (command[0] != ':') {
+    //         commandType = "system";
+    //         char cmd[command.size() + 1];
+    //         strcpy(cmd, command.c_str());
+    //         logger.save(commandType, cmd);
+    //         system(cmd);
+    //         continue;
+    //     }
 
-        string word = "";
-        vector<string> s;
-        stringstream iss(command);
-        while (iss >> word) {
-            s.push_back(word);
-        }
+    //     /** handle internal commands **/
+    //     string word = "";
+    //     vector<string> s;
+    //     stringstream iss(command);
+    //     while (iss >> word) {
+    //         s.push_back(word);
+    //     }
 
-        if (s.size() <= 1) {
-            cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
-            continue;
-        }
-        string command_to_pass = s.at(0) + " " + s.at(1);
+    //     if (s.size() <= 1) {
+    //         cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
+    //         continue;
+    //     }
+    //     string command_to_pass = s.at(0) + " " + s.at(1);
         
-        if (!watcher.ifValidInternalCommand(command_to_pass)) {
-            cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
-            continue;
-        }
-        cout << "Command executed" << endl;
-        return 0;
-    }
+    //     if (!watcher.ifValidInternalCommand(command_to_pass)) {
+    //         cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
+    //         continue;
+    //     }
+    //     logger.save(commandType, word);
+    //     cout << rainbow::italic(rainbow::grey("internal command executed")) << endl;
+    // }
 
 
     cout << endl << rainbow::bold(rainbow::underline("Reading and Processing Logs")) << endl;
     vector<string> commands = logger.readAll();
 
-    cout << rainbow::red("Displaying all entries from timestamp 1602321815") << endl;
+    cout << rainbow::red("Displaying all entries from timestamp 1602327666") << endl;
     LogProcessor logProcessor(commands);
-    for (auto entry : logProcessor.Fetch(1602321815)) {
+    for(auto entry : logProcessor.Fetch(1602327666)){
         cout << entry.timestamp << " : " << entry.command << endl;
     }
-
-    
     return 0;
 }
