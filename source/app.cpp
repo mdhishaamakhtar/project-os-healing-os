@@ -62,6 +62,8 @@ int main(){
         }
         string command_to_pass = s.at(0) + " " + s.at(1);
         
+        if(s.at(0)=="")
+
         if (!watcher.ifValidInternalCommand(command_to_pass)) {
             cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
             continue;
