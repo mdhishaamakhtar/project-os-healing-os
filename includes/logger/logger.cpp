@@ -41,13 +41,6 @@ ofstream &operator<<(ofstream &ofs, LoggerModule &s){
     return ofs;
 }
 
-/* overloading insertion operator to read data from file*/
-ifstream &operator>>(ifstream &ifs, LoggerModule &s){
-    ifs >> s.commandName;
-    ifs >> s.category;
-    ifs >> s.systime;
-    return ifs;
-}
 
 /* readAll() function returns all the commands from beginning of usage of the program*/
 vector<string> LoggerModule::readAll(){

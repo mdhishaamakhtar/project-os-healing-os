@@ -1,5 +1,5 @@
-#ifndef git_actions
-#define git_actions
+#ifndef GIT_ACTIONS_H
+#define GIT_ACTIONS_H
 #include <string>
 using namespace std;
 
@@ -7,8 +7,12 @@ using namespace std;
 class git_actions{
     public:
 	    static void create_repo(string input);
-        static void clone_repo(string url, string path);
-        static void add(string path, string file_name);
-        static auto commit(string path, string index, string name, string email, string message);
+        static void clone_repo(string url);
+        static void add();
+        static void commit(string message);
+        static void push(string branchName);
+        static void pull();
+        static void create_branch(string branchName);
+        static void checkout(string branchName);
 };
 #endif

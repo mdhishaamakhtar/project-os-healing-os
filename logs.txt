@@ -1,9 +1,0 @@
-ls|system|1602326414
-pwd|system|1602326415
-echo "system commands"|system|1602326426
-ls|system|1602327662
-new|internal|1602327666
-switch|internal|1602327679
-pwd|system|1602327882
-ls|system|1602327889
-mkdir folder|system|1602327897

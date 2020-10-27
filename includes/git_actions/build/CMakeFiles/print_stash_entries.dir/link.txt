@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/print_stash_entries.dir/samples/print_stash_entries.cpp.o  -o samples/print_stash_entries  -Wl,-rpath,"/home/vaishnav/Documents/OS project/cppgit2/build/lib" lib/libcppgit2.so.0.1.0 lib/git2.so.1.0.0 -lrt -lpthread /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so 
