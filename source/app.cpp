@@ -71,8 +71,6 @@ int main(){
         logger.save(commandType, word);
         cout << rainbow::italic(rainbow::grey("internal command executed")) << endl;
     }
-
-
     // cout << endl << rainbow::bold(rainbow::underline("Reading and Processing Logs")) << endl;
     // vector<string> commands = logger.readAll();
 
@@ -81,7 +79,5 @@ int main(){
     // for(auto entry : logProcessor.Fetch(1602327666)){
     //     cout << entry.timestamp << " : " << entry.command << endl;
     // }
-
-
     return 0;
 }
