@@ -44,7 +44,7 @@ public:
     /** Functon to check if command is allowed or not */
     bool ifValidInternalCommand(string command);
 };
-
+#endif
 
 /** Implementation of enter_command */
 string Watcher::listenForCommand(string context) {
@@ -99,5 +99,3 @@ void Watcher::taskDispatcher(vector<string> command) {
         }
     }
 }
-
-#endif

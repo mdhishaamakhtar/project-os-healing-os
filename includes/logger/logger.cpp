@@ -1,3 +1,6 @@
+#ifndef LOGGER
+#define LOGGER
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -32,6 +35,7 @@ class LoggerModule{
         void save(string context,string command);
         vector<string> readAll();
 };
+#endif
 
 /** overloading shift operator to write data **/
 ofstream &operator<<(ofstream &ofs, LoggerModule &s){
