@@ -5,7 +5,7 @@
 #include "watcher.h"
 #include "./../rainbow/rainbow.h"
 #include "./../git_actions/git_actions.h"
-#include "./../logger/logger.cpp"
+#include "./../logger/logger.h"
 
 using namespace std;
 
@@ -67,7 +67,8 @@ bool Watcher::ifValidInternalCommand(string command) {
 void Watcher::taskDispatcher(vector<string> command) {
     git_actions g;
     LoggerModule logger;
-    string cmd = command.at(0) + command.at(1);
+    string cmd = command.at(0) + " " + command.at(1);
+    cout << cmd << endl;
     string name = "";
     if (command.size() == 3) {
         name = command.at(2);

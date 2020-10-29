@@ -1,7 +1,9 @@
 #ifndef WATCHER
 #define WATCHER
+#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
 class Watcher {
     public:
@@ -24,13 +26,13 @@ class Watcher {
         };
 
         /**Function to enter a command */
-        static string listenForCommand(string context);
+        string listenForCommand(string context);
 
         /**
          * Function to call the utility function to
          * be implemented when the functions are ready
          */
-        static void taskDispatcher(vector<string> command);
+        void taskDispatcher(vector<string> command);
 
         /** Functon to check if command is allowed or not */
         bool ifValidInternalCommand(string command);

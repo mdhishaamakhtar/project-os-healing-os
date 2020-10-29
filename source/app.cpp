@@ -69,6 +69,7 @@ int main(){
             cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
             continue;
         }
+        watcher.taskDispatcher(s);
         logger.save(commandType, word);
         cout << rainbow::italic(rainbow::grey("internal command executed")) << endl;
     }
