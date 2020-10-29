@@ -1,10 +1,11 @@
-#include<iostream>
+#include <iostream>
 #include <sstream>
+#include <string.h>
 #include <string>
 
 #include"./../includes/rainbow/rainbow.h"
-#include"./../includes/logger/logger.cpp"
-#include"./../includes/watcher/watcher.cpp"
+#include"./../includes/logger/logger.h"
+#include"./../includes/watcher/watcher.h"
 #include"./../includes/log_processor/log_processor.h"
 
 using namespace std;
