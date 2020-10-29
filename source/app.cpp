@@ -1,10 +1,11 @@
-#include<iostream>
+#include <iostream>
 #include <sstream>
+#include <string.h>
 #include <string>
 
 #include"./../includes/rainbow/rainbow.h"
-#include"./../includes/logger/logger.cpp"
-#include"./../includes/watcher/watcher.cpp"
+#include"./../includes/logger/logger.h"
+#include"./../includes/watcher/watcher.h"
 #include"./../includes/log_processor/log_processor.h"
 
 using namespace std;
@@ -62,15 +63,16 @@ int main(){
         }
         string command_to_pass = s.at(0) + " " + s.at(1);
         
+        if(s.at(0)=="")
+
         if (!watcher.ifValidInternalCommand(command_to_pass)) {
             cout << rainbow::bold(rainbow::red("Please enter a correct command")) << endl;
             continue;
         }
+        watcher.taskDispatcher(s);
         logger.save(commandType, word);
         cout << rainbow::italic(rainbow::grey("internal command executed")) << endl;
     }
-
-
     // cout << endl << rainbow::bold(rainbow::underline("Reading and Processing Logs")) << endl;
     // vector<string> commands = logger.readAll();
 
@@ -79,7 +81,5 @@ int main(){
     // for(auto entry : logProcessor.Fetch(1602327666)){
     //     cout << entry.timestamp << " : " << entry.command << endl;
     // }
-
-
     return 0;
 }
