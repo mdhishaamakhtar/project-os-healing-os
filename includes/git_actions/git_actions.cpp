@@ -5,11 +5,8 @@
 #include <stdlib.h>
 #include "git_actions.h"
 using namespace std;
- 
-// class git_actions
-// {
-// public:
 
+	// Used to clone a repository
 	void git_actions::clone_repo(string url)
 	{
 		string first = "git clone ";
@@ -19,6 +16,7 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to stage all files
 	void git_actions::add()
 	{
 		string first = "git add .";
@@ -27,6 +25,7 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to commit changes to a repository
 	void git_actions::commit(string message)
 	{
 		string first = "git commit -m";
@@ -36,6 +35,7 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to push changes to the cloud
 	void git_actions::push(string branchName)
 	{
 		string first = "git push origin ";
@@ -45,6 +45,7 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to pull changes made in the cloud onto local machine
 	void git_actions::pull()
 	{
 		string first = "git pull";
@@ -53,6 +54,7 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to create a branch in the repository 
 	void git_actions::create_branch(string branchName)
 	{
 		string first = "git branch ";
@@ -62,6 +64,7 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to switch branches
 	void git_actions::checkout(string branchName)
 	{
 		string first = "git checkout ";
@@ -70,5 +73,13 @@ using namespace std;
 		const char *command = command_str.c_str();
 		system(command);
 	}
-// };
+
+	// Used to revert changes (delete the previous commit)
+	void git_actions::revert()
+	{
+		string first = "git revert";
+
+		const char *command = first.c_str();
+		system(command);
+	}
 
