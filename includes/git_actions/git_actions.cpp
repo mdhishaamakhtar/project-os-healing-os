@@ -83,3 +83,13 @@ using namespace std;
 		system(command);
 	}
 
+	// Used to delete a local branch
+	void git_actions::delete_branch(string branchName)
+	{
+		string first = "git branch -d ";
+		string command_str = first + branchName;
+
+		const char *command = command_str.c_str();
+		system(command);
+	}
+

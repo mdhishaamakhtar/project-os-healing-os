@@ -15,5 +15,6 @@ class git_actions{
         static void create_branch(string branchName);
         static void checkout(string branchName);
         static void revert();
+        static void delete_branch(string branchName);
 };
 #endif
