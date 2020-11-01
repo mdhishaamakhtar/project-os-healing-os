@@ -93,3 +93,12 @@ using namespace std;
 		system(command);
 	}
 
+	void git_actions::add_remote(string url)
+	{
+		string first = "git remote add origin ";
+		string command_str = first + url;
+		
+		const char *command = command_str.c_str();
+		system(command);		
+	}
+
