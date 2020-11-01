@@ -44,11 +44,20 @@ void Watcher::taskDispatcher(vector<string> command) {
         g.add();
         g.commit(message);
     }
+    else if (cmd == ":checkpoint revert") {
+        g.revert();
+    }
     else if (cmd == ":branch new") {
         g.create_branch(name);
     }
     else if (cmd == ":branch switch") {
         g.checkout(name);
+    }
+    else if (cmd == ":branch delete") {
+        g.delete_branch(name);
+    }
+    else if (cmd == ":add remote") {
+        g.add_remote(name);
     }
     else if (cmd == ":cloud push") {
         g.push(name);

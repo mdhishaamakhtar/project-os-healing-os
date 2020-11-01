@@ -18,6 +18,7 @@ class Watcher {
             ":branch switch",
             ":branch delete",
             ":branch accept",
+            ":add remote",
             ":cloud attach",
             ":cloud pull",
             ":cloud push",
