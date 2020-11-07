@@ -68,6 +68,9 @@ void Watcher::taskDispatcher(vector<string> command) {
     else if (cmd == ":branch new") {
         g.create_branch(name);
     }
+    else if (cmd == ":branch accept") {
+        g.merge_branch(name);
+    }
     else if (cmd == ":branch switch") {
         g.checkout(name);
     }
