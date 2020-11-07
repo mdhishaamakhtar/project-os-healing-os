@@ -6,8 +6,25 @@
 #include "./../rainbow/rainbow.h"
 #include "./../git_actions/git_actions.h"
 #include "./../logger/logger.h"
+#include "./../time-parser/timeparser.cpp"
 
 using namespace std;
+
+/**
+ * Function to split a string
+ */
+vector<string> split(const string& str, const string& delim) {
+    vector<string> tokens;
+    size_t prev = 0, pos = 0;
+    do {
+        pos = str.find(delim, prev);
+        if (pos == string::npos) pos = str.length();
+        string token = str.substr(prev, pos - prev);
+        if (!token.empty()) tokens.push_back(token);
+        prev = pos + delim.length();
+    } while (pos < str.length() && prev < str.length());
+    return tokens;
+}
 
 /** Implementation of enter_command */
 string Watcher::listenForCommand(string context) {
@@ -33,6 +50,7 @@ bool Watcher::ifValidInternalCommand(string command) {
 void Watcher::taskDispatcher(vector<string> command) {
     git_actions g;
     LoggerModule logger;
+    TimeParser parser;
     string cmd = command.at(0) + " " + command.at(1);
     cout << cmd << endl;
     string name = "";
@@ -67,8 +85,14 @@ void Watcher::taskDispatcher(vector<string> command) {
     }
     else if (cmd == ":logs show") {
         vector<string> history = logger.readAll();
-        for (auto cmnd : history) {
-            cout << rainbow::red(rainbow::italic(cmnd)) << endl;
+        for (auto s : history) {
+            vector<string> k = split(s, "|");
+            if (k.at(1) == "system") {
+                cout << parser.parseTime(stoi(k.at(2))) << "\t" << rainbow::italic(rainbow::orange(k.at(1))) << "  \t" << rainbow::italic(rainbow::red(k.at(0))) << endl;
+            }
+            else {
+                cout << parser.parseTime(stoi(k.at(2))) << "\t" << rainbow::italic(rainbow::orange(k.at(1))) << "\t" << rainbow::italic(rainbow::red(k.at(0))) << endl;
+            }
         }
     }
 }
