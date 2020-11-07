@@ -36,7 +36,7 @@ int main(){
         
         /** a clean exit **/
         if (command == "exit") {
-            system("pkill selfHealing");
+            system("pkill watcher.sh");
         }
 
         /** handle when internal command entered **/
