@@ -38,7 +38,7 @@ using namespace std;
 	// Used to push changes to the cloud
 	void git_actions::push(string branchName)
 	{
-		string first = "git push origin ";
+		string first = "git push origin master";
 		string command_str = first + branchName;
 
 		const char *command = command_str.c_str();
@@ -48,7 +48,7 @@ using namespace std;
 	// Used to pull changes made in the cloud onto local machine
 	void git_actions::pull()
 	{
-		string first = "git pull";
+		string first = "git pull origin master";
 
 		const char *command = first.c_str();
 		system(command);
