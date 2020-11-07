@@ -48,10 +48,17 @@ using namespace std;
 	// Used to pull changes made in the cloud onto local machine
 	void git_actions::pull()
 	{
-		string first = "git pull origin master";
+		string first = "git fetch";
+		const char *command1 = first.c_str();
+        system(command1);
 
-		const char *command = first.c_str();
-		system(command);
+        string second = "git reset --hard origin/master";
+        const char *command2 = second.c_str();
+        system(command2);
+
+		string third = "git pull origin master";
+		const char *command3 = third.c_str();
+		system(command3);
 	}
 
 	// Used to create a branch in the repository 
