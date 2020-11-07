@@ -102,7 +102,7 @@ using namespace std;
 
 	void git_actions::merge_branch(string branchName)
 	{
-		string first = "git branch ";
+		string first = "git merge ";
 		string command_str = first + branchName;
 
 		const char *command = command_str.c_str();
